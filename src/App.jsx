@@ -1,15 +1,16 @@
 import './App.scss';
 
-// Assets
-import pokeball from './assets/images/pokeball.png';
+// Pages
+import { Pokedex } from './pages';
+
+// Components
+import { Navbar } from './pages';
 
 function App() {
   return (
     <div className="App">
-      <div className="title-logo">
-        <h1>ReactDex!</h1>
-        <img src={pokeball} alt="Pokeball logo" />
-      </div>
+      <Navbar />
+      <Pokedex />
     </div>
   );
 }
