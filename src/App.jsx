@@ -7,6 +7,8 @@ import { Pokedex } from './pages';
 import { Navbar } from './components';
 
 function App() {
+
+
   return (
     <div className="App">
       <Navbar />

@@ -1,9 +1,9 @@
 import style from './Card.module.scss';
 
-export const Card = ({ title, description }) => {
+export const Card = ({ name, description }) => {
   return (
     <div className={style['card-box']}>
-      <p>Title: {title}</p>
+      <p>Name: {name}</p>
       <p>Description: {description}</p>
     </div>
   );

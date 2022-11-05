@@ -14,7 +14,6 @@
   justify-content: center;
 
   font-size: 0.8rem;
-  filter: brightness(90%);
 
   img {
     filter: brightness(80%);
@@ -23,4 +22,11 @@
 
     animation: perpetual-rotation 1.4s ease-in-out 0s infinite alternate-reverse;
   }
+}
+
+.cards {
+  margin: 1.8rem;
+  border: 1px dashed var(--light);
+  display: flex;
+  flex-direction: row;
 }
