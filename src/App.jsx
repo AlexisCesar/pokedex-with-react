@@ -4,7 +4,7 @@ import './App.scss';
 import { Pokedex } from './pages';
 
 // Components
-import { Navbar } from './pages';
+import { Navbar } from './components';
 
 function App() {
   return (
