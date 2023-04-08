@@ -5,22 +5,21 @@ import pokeball from '../../assets/images/pokeball.png';
 
 // Components
 import { Card } from '../../components';
+import { useEffect, useState } from 'react';
 
 export const Pokedex = () => {
-  const pokemonsMock = [
-    {
-      name: "Pikachu",
-      description: "Electrical"
-    },
-    {
-      name: "Bulbasaur",
-      description: "Grass"
-    },
-    {
-      name: "Charmander",
-      description: "Fire"
-    }
-  ];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    apiCallTest();
+  }, []);
+
+  const apiCallTest = async () => {
+    await fetch('https://pokeapi.co/api/v2/pokemon')
+    .then(res => res.json())
+    .then(res => setData(res.results));
+  };
+
 
   return (
     <div className={style['title-logo']}>
@@ -29,8 +28,8 @@ export const Pokedex = () => {
 
       <div className={style['cards']}>
         { 
-          pokemonsMock && pokemonsMock.map(pokemon => (
-            <Card name={pokemon.name} description={pokemon.description} />
+          data && data.map(pokemon => (
+            <Card name={pokemon.name} key={pokemon.name} />
           ))
         }
       </div>
