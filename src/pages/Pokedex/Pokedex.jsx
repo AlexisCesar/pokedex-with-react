@@ -11,13 +11,22 @@ export const Pokedex = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    apiCallTest();
+    callPokeAPI();
   }, []);
 
-  const apiCallTest = async () => {
-    await fetch('https://pokeapi.co/api/v2/pokemon')
-    .then(res => res.json())
-    .then(res => setData(res.results));
+  const callPokeAPI = async () => {
+    let endpoints = [];
+    for(let i = 1; i < 21; i++) {
+      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
+    }
+
+    const requests = endpoints.map(endpoint => fetch(endpoint));
+
+    const responses = await Promise.all(requests);
+
+    const jsonResponses = await Promise.all(responses.map(response => response.json()));
+
+    setData(jsonResponses);
   };
 
 
@@ -29,7 +38,7 @@ export const Pokedex = () => {
       <div className={style['cards']}>
         { 
           data && data.map(pokemon => (
-            <Card name={pokemon.name} key={pokemon.name} />
+            <Card name={pokemon.name} spriteUrl={pokemon.sprites.front_default} key={pokemon.name} />
           ))
         }
       </div>
