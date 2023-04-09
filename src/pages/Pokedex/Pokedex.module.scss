@@ -35,3 +35,20 @@
     animation: none;
   }
 }
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2rem;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    button {
+      margin: .3rem;
+    }
+  }
+
+}
