@@ -26,7 +26,8 @@
 
 .cards {
   margin: 1.8rem;
-  border: 1px dashed var(--light);
+  border: 3px solid #7b0606;
+  border-radius: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -51,4 +52,90 @@
     }
   }
 
+}
+
+.leds, .small-leds {
+  display: flex;
+  flex-direction: row;
+}
+
+.blue-led-outside {
+  margin-left: 1.8rem;
+  width: 5rem;
+  height: 5rem;
+  border: 2px solid var(--dark);
+  border-radius: 100%;
+
+  background-color: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue-led-inside {
+  width: 4.5rem;
+  height: 4.5rem;
+  border: 2px solid var(--dark);
+  border-radius: 100%;
+
+  background-color: #6a89e9;
+
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+
+.blue-led-shadow {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 100%;
+
+  background-color: #40538a;
+
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.blue-led-shadow-break {
+  margin-left: .2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+
+  background-color: #6a89e9;
+
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.blue-led-light-reflection {
+  margin-left: .4rem;
+  margin-top: .4rem;
+  width: .6rem;
+  height: .6rem;
+  border-radius: 100%;
+
+  background-color: #ffffff98;
+}
+
+.red-led, .green-led, .yellow-led {
+  margin-left: .8rem;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--dark);
+  border-radius: 100%;
+}
+
+.red-led {
+  background-color: #bf0000;
+}
+
+.yellow-led {
+  background-color: #eee543;
+}
+
+.green-led {
+  background-color: #75e61f;
 }

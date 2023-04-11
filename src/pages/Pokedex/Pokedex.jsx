@@ -20,6 +20,7 @@ export const Pokedex = () => {
 
   useEffect(() => {
     callPokeAPI();
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }, [currentPage]);
 
 
@@ -64,23 +65,41 @@ export const Pokedex = () => {
       <h2>Pokémons available: {pokemonsAvailable}</h2>
     </div>
 
-
-      <div className={style['cards']}>
-        { 
-          data && data.map(pokemon => (
-            <Card name={pokemon.name} spriteUrl={pokemon.sprites.front_default} key={pokemon.name} />
-          ))
-        }
+    <div className={style["leds"]}>
+      <div className={style["blue-led-outside"]}>
+        <div className={style["blue-led-inside"]}>
+          <div className={style["blue-led-shadow"]}>
+            <div className={style["blue-led-shadow-break"]}>
+              <div className={style["blue-led-light-reflection"]}></div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className={style["pagination"]}>
-          <span>Total pages: {Math.floor(pokemonsAvailable / pokemonsPerPage) + 1}</span>
-          <span>Current page: {currentPage + 1}</span>
-        <ul>
-          <button onClick={handlePreviousPage}>Previous Page</button>
-          <button onClick={handleNextPage}>Next Page</button>
-        </ul>
+      <div className={style["small-leds"]}>
+        <div className={style["red-led"]}></div>
+        <div className={style["yellow-led"]}></div>
+        <div className={style["green-led"]}></div>
       </div>
+
+    </div>
+
+    <div className={style['cards']}>
+      { 
+        data && data.map(pokemon => (
+          <Card name={pokemon.name} spriteUrl={pokemon.sprites.front_default} key={pokemon.name} />
+        ))
+      }
+    </div>
+
+    <div className={style["pagination"]}>
+        <span>Total pages: {Math.floor(pokemonsAvailable / pokemonsPerPage) + 1}</span>
+        <span>Current page: {currentPage + 1}</span>
+      <ul>
+        <button onClick={handlePreviousPage}>Previous Page</button>
+        <button onClick={handleNextPage}>Next Page</button>
+      </ul>
+    </div>
     </>
   );
 };
